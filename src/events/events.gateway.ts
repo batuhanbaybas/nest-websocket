@@ -16,8 +16,9 @@ export class EventsGateway {
   @WebSocketServer()
   server: Server;
 
+  // create a new chatroom
   @SubscribeMessage('message')
-  getMessage(@MessageBody() data: any) {
+  createRoom(@MessageBody() data: string) {
     return this.server.emit('message', data);
   }
 }
